@@ -7,7 +7,7 @@ const ContactPage = () => {
       <div className="relative bg-gray-800 h-96 flex flex-col items-center justify-center text-center">
         <h1 className="text-4xl lg:text-6xl font-extrabold mb-4">Contact Us</h1>
         <p className="text-lg lg:text-xl max-w-2xl">
-          We'd love to hear from you. Get in touch with us!
+          We&apos;d love to hear from you. Get in touch with us!
         </p>
       </div>
 
@@ -16,7 +16,7 @@ const ContactPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Form */}
           <div>
-            <form action="#" method="POST">
+            <form>
               <div className="grid grid-cols-1 gap-6">
                 <div>
                   <label
@@ -29,6 +29,7 @@ const ContactPage = () => {
                     type="text"
                     id="name"
                     name="name"
+                    title="Enter your name"
                     required
                     className="mt-1 block w-full p-3 rounded-md bg-gray-700 text-white focus:ring focus:ring-yellow-500 focus:outline-none"
                   />
@@ -44,6 +45,7 @@ const ContactPage = () => {
                     type="email"
                     id="email"
                     name="email"
+                    title="Enter your email address"
                     required
                     className="mt-1 block w-full p-3 rounded-md bg-gray-700 text-white focus:ring focus:ring-yellow-500 focus:outline-none"
                   />
@@ -58,6 +60,7 @@ const ContactPage = () => {
                   <textarea
                     id="message"
                     name="message"
+                    title="Enter your message"
                     rows={4}
                     required
                     className="mt-1 block w-full p-3 rounded-md bg-gray-700 text-white focus:ring focus:ring-yellow-500 focus:outline-none"
@@ -84,10 +87,16 @@ const ContactPage = () => {
             </p>
             <ul className="text-gray-400">
               <li className="mb-2">
-                <strong>Email:</strong> support@yourdomain.com
+                <strong>Email:</strong>{" "}
+                <a href="mailto:support@yourdomain.com" className="underline hover:text-yellow-500">
+                  support@yourdomain.com
+                </a>
               </li>
               <li className="mb-2">
-                <strong>Phone:</strong> +123 456 7890
+                <strong>Phone:</strong>{" "}
+                <a href="tel:+1234567890" className="underline hover:text-yellow-500">
+                  +123 456 7890
+                </a>
               </li>
               <li>
                 <strong>Address:</strong> 123 Luxury Street, Your City, Your
@@ -111,5 +120,6 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
+
 
 

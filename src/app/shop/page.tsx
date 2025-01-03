@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const ShopPage = () => {
-  // Extended product list
   const products = [
     { id: 1, name: "Shirt", price: 20, category: "Clothing", image: "/shirt.jpg" },
     { id: 2, name: "T-shirt", price: 15, category: "Clothing", image: "/tshirt.webp" },
@@ -20,11 +20,9 @@ const ShopPage = () => {
   ];
 
   const categories = ["All", "Clothing", "Footwear", "Accessories"];
-
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Filter products based on category and search query
   const filteredProducts = products.filter((product) => {
     return (
       (selectedCategory === "All" || product.category === selectedCategory) &&
@@ -34,15 +32,12 @@ const ShopPage = () => {
 
   return (
     <div className="bg-gray-100 min-h-screen">
-      {/* Header */}
       <header className="bg-gray-800 text-white py-4">
         <h1 className="text-center text-2xl font-bold">Shop</h1>
       </header>
 
-      {/* Filters */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          {/* Category Filter */}
           <div>
             <label htmlFor="categories" className="mr-2 font-medium">
               Category:
@@ -61,7 +56,6 @@ const ShopPage = () => {
             </select>
           </div>
 
-          {/* Search Bar */}
           <div className="relative w-full md:w-1/3">
             <input
               type="text"
@@ -93,7 +87,6 @@ const ShopPage = () => {
         </div>
       </div>
 
-      {/* Product Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {filteredProducts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -102,9 +95,11 @@ const ShopPage = () => {
                 key={product.id}
                 className="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg"
               >
-                <img
+                <Image
                   src={product.image}
                   alt={product.name}
+                  width={500}
+                  height={300}
                   className="h-48 w-full object-cover"
                 />
                 <div className="p-4">
@@ -126,3 +121,4 @@ const ShopPage = () => {
 };
 
 export default ShopPage;
+
